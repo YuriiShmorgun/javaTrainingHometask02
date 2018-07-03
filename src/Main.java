@@ -1,26 +1,28 @@
+/* @Task2.java   v2   03.07.18
+ *
+ * Copyright (c) Open source project
+ *
+ * This software use for home task2 and learn book clear code
+ * You can use any material for your oven project
+ * You haven`t change the code if you are not a trainer
+ */
 
-import core.model.Model;
 
-import java.text.SimpleDateFormat;
-import java.time.Clock;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.TimeZone;
-import java.util.concurrent.ThreadLocalRandom;
+import core.controller.Controller;
 
-/**
- * Created by Yurii on 30.06.2018.
+/*
+ * This is the main class for running program
+ *
+ * @version     2     03.07.2018
+ * @author      Yurii Shmorgun
  */
 public class Main {
-
     public static void main(String[] args) {
 
+/*Creating controller. It creates another classes*/
+        Controller controller = new Controller();
 
-        Model model = new Model();
-        model.getRandomResult(0,10);
-        model.checkNumber();
-
-
-
+        /*Method to start the whole programe*/
+        controller.start();
     }
 }

@@ -1,6 +1,6 @@
 package core.model;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,7 +18,8 @@ public class Model {
     private int randomNumber = 0;
     private ArrayList<String> tryList = new ArrayList<String>();
     private Date dateNow = new Date();
-    private Answer answer;
+    private AnswerE answerE;
+
 
 
     public ArrayList getStatistic (){
@@ -30,23 +31,30 @@ public class Model {
     /*Generate int random number from "a" to "b"*/
     public void getRandomResult  (int fromInt, int toInt){
         randomNumber = ThreadLocalRandom.current().nextInt(fromInt, toInt);
+
+        System.out.println(randomNumber);
     }
 
 
     /*Check the number*/
-    public Answer checkNumber (int number){
+    public Boolean checkNumber (int number){
 
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("hh:mm:ss");
 
+        boolean b = false;
+
         if (number < randomNumber){
-            System.out.println(answer = Answer.LESS);
+            System.out.println(answerE = AnswerE.MORE);
+            b = false;
         }else if (number>randomNumber){
-            System.out.println(answer = Answer.MORE);
+            System.out.println(answerE = AnswerE.LESS);
+            b = false;
         }else if (number == randomNumber){
-            System.out.println(answer = Answer.YES);
+            System.out.println(answerE = AnswerE.YES);
+            b = true;
         }
 
-        tryList.add(number + " " +  answer + " " + formatForDateNow.format(dateNow));
-        return answer;
+        tryList.add(number + " " + answerE + " " + formatForDateNow.format(dateNow));
+        return  b;
     }
 }
